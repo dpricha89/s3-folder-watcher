@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="uploader">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Vendor Styles -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Vendor Styles -->
+
+    <!-- Vendor Javascript -->
+    <script src="vendor/jquery/jquery-3.1.0.min.js" type="application/javascript"></script>
+    <script src="vendor/angular/angular.min.js" type="application/javascript"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+    <!-- Vendor Javascript -->
+
+    <!-- Controlers -->
+    <script src="js/index.js" type="application/javascript"></script>
+    <!-- Controlers -->
+
+</head>
+
+<body ng-controller="MainController">
+
+    <nav class="navbar navbar-default">
+      <div class="navbar-collapse collapse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"> <i class="fa fa-blind"></i>S3 Folder Watcher</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="" ng-click="refresh_button()"><i class="fa fa-refresh"></i></a></li>
+            <li><a>Last Refresh: {{ last_refresh }}</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped table-hover">
+              <thead>
+                  <tr>
+                      <td></td>
+                      <td>#</td>
+                      <td>Path</td>
+                      <td>Status</td>
+                      <td>Upload Rate</td>
+                      <td>Total Size</td>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr ng-class="row_color(server.status)" ng-repeat="server in servers | orderBy:'uploaded_size'">
+                      <td><i ng-class="spinner_status(server.status)"></i></td>
+                      <td>{{ $index+1 }}</td>
+                      <td>{{ server.path }}</td>
+                      <td>{{ server.status }}</td>
+                      <td>{{ formatBytesPerSecond(server.upload_rate, 2) }}</td>
+                      <td>{{ formatBytes(server.uploaded_size, 2) }}</td>
+                  </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

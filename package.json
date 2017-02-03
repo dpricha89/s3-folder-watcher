@@ -1,0 +1,27 @@
+{
+    "name": "uploader_watcher",
+    "version": "1.0.0",
+    "description": "Watches the progress of the aws sync for krux bucketeer grid 3",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "bluebird": "latest",
+        "aws-sdk": "latest",
+        "dynasty": "latest",
+        "winston": "latest",
+        "express": "latest",
+        "repeat": "latest",
+        "underscore": "latest",
+        "morgan": "latest",
+        "moment": "latest",
+        "dynasty": "latest",
+        "s3-util": "latest",
+        "nconf": "latest",
+        "multiprocessing": "latest"
+    },
+    "author": "",
+    "license": "ISC"
+}

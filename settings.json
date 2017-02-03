@@ -1,0 +1,10 @@
+{
+    "AWS_REGION": "us-east-1",
+    "AWS_ACCESS_KEY_ID": "XXXXXX",
+    "AWS_SECRET_ACCESS_KEY": "XXXXXXXXXXXXXX",
+    "AWS_DYNAMO_DB_TABLE": "folder-upload-stats",
+    "AWS_S3_BUCKET": "data-archive",
+    "AWS_S3_PREFIX": "subfolder/",
+    "LOG_LEVEL": "debug",
+    "CHECK_INTERVAL": 30
+}
