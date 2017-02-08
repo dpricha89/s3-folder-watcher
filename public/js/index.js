@@ -1,26 +1,26 @@
-var uploader = angular.module('uploader', []);
+var uploader = angular.module( 'uploader', []);
 
-uploader.controller('MainController', function ($scope, $http, $interval) {
+uploader.controller( 'MainController', function( $scope, $http, $interval ) {
 
     $scope.last_refresh = 'Never';
 
     function refresh() {
-        $http.get('/api/folders')
-            .success(function (response) {
+        $http.get( '/api/folders' )
+            .success(function( response ) {
                 $scope.last_refresh = new Date().toString();
                 $scope.servers = response;
             })
-            .error(function (err) {
-                console.log(err);
+            .error(function( err ) {
+                console.log( err );
             });
     }
 
-    $scope.refresh_button = function () {
+    $scope.refresh_button = function() {
         refresh();
     };
 
-    $scope.row_color = function (status) {
-        switch (status) {
+    $scope.row_color = function( status ) {
+        switch ( status ) {
             case 'running':
                 return 'success';
             case 'stopped':
@@ -34,8 +34,8 @@ uploader.controller('MainController', function ($scope, $http, $interval) {
         }
     };
 
-    $scope.spinner_status = function (status) {
-        switch (status) {
+    $scope.spinner_status = function( status ) {
+        switch ( status ) {
             case 'running':
                 return 'fa fa-circle-o-notch fa-spin';
             case 'stopped':
@@ -49,14 +49,14 @@ uploader.controller('MainController', function ($scope, $http, $interval) {
         }
     };
 
-    $scope.fix_percent = function (percent) {
-        return (typeof percent === 'string') ? percent : Math.ceil(percent) + '%';
+    $scope.fix_percent = function( percent ) {
+        return ( typeof percent === 'string' ) ? percent : Math.ceil( percent ) + '%';
     };
 
-    $scope.formatBytes = function (bytes, decimals) {
-        if (bytes === 0) {
+    $scope.formatBytes = function( bytes, decimals ) {
+        if ( bytes === 0 ) {
             return '0 Byte';
-        } else if (typeof bytes === 'string' || !bytes) {
+        } else if ( typeof bytes === 'string' || !bytes) {
             return 'N/A';
         }
         var k = 1000; // or 1024 for binary

@@ -13,3 +13,6 @@ Watch the file size of s3 folders during large uploads
   node server.js
   ```
 5. Open the browser to watch progress http://localhost:3000
+
+
+![Screenshot](screenshot.png)
