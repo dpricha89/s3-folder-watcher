@@ -2,7 +2,7 @@
 Watch the file size of s3 folders during large uploads
 
 ### Setup
-1. create an empty dynamodb table to store stats
+1. create an empty dynamodb table with hash key `path` to store stats
 2. Update the settings.json in the application directory
 3. Install dependencies
   ```bash
